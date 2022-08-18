@@ -1,0 +1,5 @@
+#component_eventwindow_newevent > button{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}

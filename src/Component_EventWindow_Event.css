@@ -1,0 +1,54 @@
+.component_eventwindow_event{
+    position: relative;
+    width: 90%;
+    height: 3em;
+    margin: 1rem 0 0 0;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 0 0 0 1rem;
+    border-top-left-radius: 25px;
+    border-bottom-left-radius: 25px;
+    box-shadow: 2px 2px 2px 2px rgba(0,0,0,0.5);
+}
+
+.component_eventwindow_event:nth-child(1){
+    background: white;
+}
+
+.component_eventwindow_event_white {
+    background: white;
+}
+.component_eventwindow_event_yellow {
+    background: yellow;
+}
+.component_eventwindow_event_orange {
+    background: orange;
+}
+.component_eventwindow_event_red {
+    background: red;
+    color: white;
+}
+
+.eventTextField{
+    position: relative;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 80%;
+    padding: 0 0 0 1rem;
+}
+
+.eventEditField{
+    position: relative;
+    display: flex;
+    flex-wrap: nowrap;
+    width: 20%;
+    justify-content: space-around;
+    padding: 0 1rem 0 0;
+}
+
+.component_eventwindow_event_green {
+    background: green;
+    color: white;
+}
