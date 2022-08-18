@@ -11,6 +11,7 @@ import "./Component_EventWindow.css"
 import "./Component_ActivityWindow.css"
 import "./Component_EventWindow_NewEvent.css"
 import "./Component_EventWindow_NewEvent_Modal.css"
+import "./Component_EventWindow_EditEvent_Modal.css"
 
 function App() {
 

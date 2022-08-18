@@ -5,9 +5,6 @@ import Component_EventWindow_NewEvent_Modal from "./Component_EventWindow_NewEve
 import Component_EventWindow_Event from "./Component_EventWindow_Event"
 
 
-
-
-
 function Component_EventWindow_NewEvent(){
 
     const [modal, setModal] = useState(false)

@@ -1,7 +1,7 @@
 import {useState, useEffect} from "react"
 import ReactDOM from 'react-dom/client'
 import * as ReactDOMClient from 'react-dom/client'
-import Component_EventWindow_NewEvent_Modal from "./Component_EventWindow_NewEvent_Modal"
+import Component_EventWindow_EditEvent_Modal from "./Component_EventWindow_EditEvent_Modal"
 import {doc, deleteDoc, updateDoc} from "firebase/firestore"
 import {db, querySnapshot} from "./firebase.js"
 
@@ -65,10 +65,25 @@ function Component_EventWindow_Event(props){
       await deleteDoc(doc(db, "events", id))
   }}
 
+  const [editmodal, setEditmodal] = useState(false)
+    const toggleEditmodal = () => setEditmodal(!editmodal)
+
+
+
   return(
     <div className={`component_eventwindow_event component_eventwindow_event_${color}`} id={`event_${props.firebaseId}`}>
       <input type="checkbox" checked={checked}id={`event_checkbox_${props.firebaseId}`} onChange={(e) => {setChecked(!checked);setHandler(e); setTargetId(props.firebaseId)}} ></input>
-      <div className="eventTextField">{props.time} {props.title}</div> {props.default ? "" : <div className="eventEditField"><div className="eventEditFieldDelete" onClick={() => deleteEvent(props.firebaseId, props.title, props.time)}>{`\u{1F5D1}`}</div><div className="eventEditFieldEdit">{`\u{1F589}`}</div></div>}
+      <div className="eventTextField">
+        {props.time} {props.title}</div> {props.default ? 
+        "" 
+        : 
+        <div className="eventEditField">
+          <div className="eventEditFieldDelete" onClick={() => deleteEvent(props.firebaseId, props.title, props.time)}>{`\u{1F5D1}`}</div>
+          <div className="eventEditFieldEdit" onClick={async () => {
+                toggleEditmodal()
+                }}>{`\u{1F589}`}</div>
+        </div>}
+        <Component_EventWindow_EditEvent_Modal showEditModal={editmodal} closeEditModal={toggleEditmodal} eventEditTitle={props.title} eventEditTime={props.time}/>
     </div>    
   )  
 }
