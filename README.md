@@ -24,18 +24,20 @@ Activities can be Areas or Firings, whereas a Firing triggers an Event and an Ar
 
 Events are recurring or any other task that may come up during the shift.
 You can manually create an Event, edit and delete it.
+Default events cannot be deleted or edited via the Dashboard, only directly in the Firestore database.
 Events can be created by creating a Firing Activity.
 
-They feature a starting time (in local time) and an Event name. 
+They feature a starting time (in local time) and an Event name.
 The checkbox indicates if an Event is still open or already done.
 Events are color coded depending on how close the current time is to the Event time:
+
 - white if more than half an hour in the future
 - yellow if between half an hour and 20 minutes
 - orange if between 20 minutes and 10 minutes
 - red if below 10 minutes and past the Event start time
-- green if the checkbox is ticked 
+- green if the checkbox is ticked
 
-Created events are deleted on midnight. 
+Created events are deleted on midnight.
 Default events that are displayed every day can be set up in the Firebase console directly by changing the "default" value.
 Manually created and Activity triggered Events are flagged "default: false" by default.
 
