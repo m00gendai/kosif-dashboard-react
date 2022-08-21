@@ -1,0 +1,9 @@
+#component_switchviews{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(25px, 1fr));
+    grid-gap: 1rem;
+}
+
+.component_switchviews_option{
+    background: white;
+}

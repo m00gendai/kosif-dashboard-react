@@ -1,6 +1,10 @@
+import Component_SwitchViews from "./Component_SwitchViews.jsx"
+
 function Component_ActivityWindow(){
     return(
-        <div id="component_activitywindow">Activities</div>
+        <div id="component_activitywindow">
+            <Component_SwitchViews />
+        </div>
     )
 }
 
