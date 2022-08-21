@@ -1,12 +1,10 @@
 import {useState, useEffect} from "react"
-import ReactDOM from 'react-dom/client'
-import * as ReactDOMClient from 'react-dom/client'
 import Component_EventWindow_EditEvent_Modal from "./Component_EventWindow_EditEvent_Modal"
 import {doc, deleteDoc, updateDoc} from "firebase/firestore"
-import {db, querySnapshot} from "./firebase.js"
-
+import {db} from "./firebase.js"
 
 function Component_EventWindow_Event(props){
+
   const [date, setDate] = useState(new Date())
   const [color, setColor] = useState("white")
   const [checked, setChecked] = useState(false)
@@ -14,7 +12,7 @@ function Component_EventWindow_Event(props){
   const [targetId, setTargetId] = useState("")
 
   useEffect(()=>{
-    props.isChecked?setChecked(true):null
+    props.isChecked ? setChecked(true) : null
   },[])
 
   useEffect(() => {
