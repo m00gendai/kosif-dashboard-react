@@ -17,7 +17,7 @@ function Component_Titlebar(){
 
     return(
         <div id="component_titlebar">
-            <h1>Christines KOSIF Dashboard</h1>
+            <h1>Christines KOSIF Dashboard update SUN 21 AUG</h1>
             <div className="timeZone">
                 <div id="localtime" className="timeZoneItem">
                     {
