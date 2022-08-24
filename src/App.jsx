@@ -11,10 +11,8 @@ import "./Component_SwitchViews.css"
 import "./Component_EventWindow_NewEvent.css"
 import "./Component_EventWindow_NewEvent_Modal.css"
 import "./Component_EventWindow_EditEvent_Modal.css"
-
   
 function App() {
-  
   return (
     <div className="App">
       <Component_Titlebar />

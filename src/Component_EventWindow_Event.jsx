@@ -76,10 +76,10 @@ function Component_EventWindow_Event(props){
         "" 
         : 
         <div className="eventEditField">
-          <div className="eventEditFieldDelete" onClick={() => deleteEvent(props.firebaseId, props.title, props.time)}>{`\u{1F5D1}`}</div>
-          <div className="eventEditFieldEdit" onClick={async () => {
+          <img className="eventEditFieldAction" onClick={() => deleteEvent(props.firebaseId, props.title, props.time)} src="trash-svgrepo-com.svg" />
+          <img className="eventEditFieldAction" onClick={async () => {
                 toggleEditmodal()
-                }}>{`\u{1F589}`}</div>
+                }} src="pencil-svgrepo-com.svg" />
         </div>}
         <Component_EventWindow_EditEvent_Modal showEditModal={editmodal} closeEditModal={toggleEditmodal} eventEditTitle={props.title} eventEditTime={props.time}/>
     </div>    
