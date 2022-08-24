@@ -2,4 +2,9 @@
   width: 100%;
   display: flex;
   justify-content: center;
+  background: transparent;
+  color: white;
+}
+#component_eventwindow_newevent>button:hover{
+  border: none;
 }

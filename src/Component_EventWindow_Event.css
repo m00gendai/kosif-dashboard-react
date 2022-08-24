@@ -13,7 +13,10 @@
 }
 
 .component_eventwindow_event:nth-child(1){
-    background: white;
+background: rgba(0,0,0,0.5);
+}
+.component_eventwindow_event:nth-child(1):hover {
+    background: rgba(0, 0, 0, 0.6);
 }
 
 .component_eventwindow_event_white {

@@ -1,9 +1,14 @@
 #component_switchviews{
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(25px, 1fr));
-    grid-gap: 1rem;
 }
 
 .component_switchviews_option{
-    background: white;
+    background: rgba(0,0,0,0.5);
+    color: white;
+    margin: 0 1rem 0 1rem;
+}
+.component_switchviews_option:hover{
+    cursor:pointer;
+    background: rgba(0, 0, 0, 0.6);
 }
