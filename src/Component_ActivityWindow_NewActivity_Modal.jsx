@@ -1,14 +1,20 @@
+import {useState, useEffect} from "react"
 import {collection, addDoc} from "firebase/firestore"
 import {db} from "./firebase.js"
 
 function Component_ActivityWindow_NewActivity_Modal({show, close}){
-    async function populateActivityDB(activityName, activityTime){
+
+const [activityType, setActivityType] = useState("area")
+
+    async function populateActivityDB(activityName, activityTime, activityType){
+        console.log(activityName, activityTime, activityType)
         if(activityName == "" || activityTime == ""){
             alert("please")
         } else {
             await addDoc(collection(db, "activities"),{
                 name: activityName,
                 time: activityTime,
+                type: activityType
             })
             
         }
@@ -24,6 +30,13 @@ function Component_ActivityWindow_NewActivity_Modal({show, close}){
                     <h2>Create New Activity</h2>
                     <div className="component_Activitywindow_newactivity_modalbody_input_container">
                         <fieldset>
+                            <legend>Activity Type</legend>
+                            <input type="radio" id="newActivityTypeValue_Area" name="newActivityTypeValue" value="area" defaultChecked onChange={() => setActivityType("area")} />
+                            <label htmlFor="newActivityTypeValue_Area">Area</label>
+                            <input type="radio" id="newActivityTypeValue_Firing" name="newActivityTypeValue" value="firing" onChange={() => setActivityType("firing")}/>
+                            <label htmlFor="newActivityTypeValue_Firing">Firing</label>
+                        </fieldset>
+                        <fieldset>
                             <legend>Activity Name</legend>
                             <input type="text" placeholder="Coffee with Shra" id="newActivityNameValue" required></input>
                         </fieldset>
@@ -33,7 +46,7 @@ function Component_ActivityWindow_NewActivity_Modal({show, close}){
                         </fieldset>
                     </div>
                     <div className="component_Activitywindow_newactivity_modalbody_button_container">
-                        <button id="component_Activitywindow_newactivity_modalbody_button_add" onClick={() =>{populateActivityDB(document.getElementById("newActivityNameValue").value, document.getElementById("newActivityTimeValue").value)}}>{`\u{1F5F8}`}</button>
+                        <button id="component_Activitywindow_newactivity_modalbody_button_add" onClick={() =>{populateActivityDB(document.getElementById("newActivityNameValue").value, document.getElementById("newActivityTimeValue").value, activityType)}}>{`\u{1F5F8}`}</button>
                         <button id="component_Activitywindow_newactivity_modalbody_button_close" onClick={()=>close()}>{`\u{2717}`}</button>
                     </div>
                </div>
