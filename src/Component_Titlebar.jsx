@@ -17,12 +17,12 @@ function Component_Titlebar(){
 
     return(
         <div id="component_titlebar">
-            <h1>Christines KOSIF Dashboard update WED 24 AUG</h1>
+            <h1>Christines KOSIF Dashboard</h1>
             <div className="timeZone">
                 <div id="localtime" className="timeZoneItem">
+                    <img src="switzerland-svgrepo-com.svg" />
                     {
                         `
-                        \u{1f1e8}\u{1f1ed}
                         ${date.getFullYear()} 
                         ${date.getMonth()+1 < 10 ? "0"+(date.getMonth()+1) : date.getMonth()} 
                         ${date.getDate() < 10 ? "0"+date.getDate() : date.getDate()}
@@ -31,9 +31,9 @@ function Component_Titlebar(){
                     }
                 </div>
                 <div id="utctime" className="timeZoneItem">
+                    <img src="globe-showing-europe-africa-svgrepo-com.svg" />
                     {
                         `
-                        \u{1f30d}
                         ${date.getUTCFullYear()} 
                         ${date.getUTCMonth()+1 < 10 ? "0"+(date.getUTCMonth()+1) : date.getUTCMonth()} 
                         ${date.getUTCDate() < 10 ? "0"+date.getUTCDate() : date.getUTCDate()}
