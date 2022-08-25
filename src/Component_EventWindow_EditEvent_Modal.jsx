@@ -39,17 +39,16 @@ function Component_ActivityWindow_EditActivity_Modal({showEditModal, closeEditMo
 {
 showEditModal ?
         <div id="component_eventwindow_editevent_modal" className="">
-            
             <div id="component_Eventwindow_editevent_modalbody">
                 <h2>Edit Event</h2>
                 <div className="component_Eventwindow_editevent_modalbody_input_container">
                 <fieldset>
                     <legend>Event Name</legend>
-                <input type="text" placeholder="Coffee with Shra" id="editEventNameValue" required value={editEventTitleState} onChange={handleEditEventTitleChange}></input>
+                <input type="text" placeholder="Coffee with Shra" id="editEventNameValue" required value={eventEditTitle} onChange={handleEditEventTitleChange}></input>
                 </fieldset>
                 <fieldset>
                     <legend>Event Start Time</legend>
-                <input type="text" pattern="[0-9]+" placeholder="0930" id="editEventTimeValue" required value={editEventTimeState} onChange={handleEditEventTimeChange}></input>
+                <input type="text" pattern="[0-9]+" placeholder="0930" id="editEventTimeValue" required value={eventEditTime} onChange={handleEditEventTimeChange}></input>
                 </fieldset>
                 </div>
                 <div className="component_Eventwindow_editevent_modalbody_button_container">

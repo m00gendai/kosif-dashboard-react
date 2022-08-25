@@ -71,22 +71,28 @@ function Component_EventWindow_Event(props){
   const [editmodal, setEditmodal] = useState(false)
     const toggleEditmodal = () => setEditmodal(!editmodal)
 
-
-
   return(
     <div className={`component_eventwindow_event component_eventwindow_event_${color}`} id={`event_${props.firebaseId}`}>
       <input type="checkbox" checked={checked}id={`event_checkbox_${props.firebaseId}`} onChange={(e) => {setChecked(!checked);setHandler(e); setTargetId(props.firebaseId)}} ></input>
-      <div className="eventTextField">
-        {props.time} {props.title}</div> {props.default ? 
+      <div className="eventTextField" >
+        {props.time} {props.title}
+        </div>
+        {props.default ? 
         "" 
         : 
         <div className="eventEditField">
           <img className="eventEditFieldAction" onClick={() => deleteEvent(props.firebaseId, props.title, props.time)} src="trash-svgrepo-com.svg" />
-          <img className="eventEditFieldAction" onClick={async () => {
-                toggleEditmodal()
+          <img className="eventEditFieldAction" onClick={(e) => {
+               toggleEditmodal()
                 }} src="pencil-svgrepo-com.svg" />
         </div>}
-        <Component_EventWindow_EditEvent_Modal showEditModal={editmodal} closeEditModal={toggleEditmodal} eventEditTitle={props.title} eventEditTime={props.time} eventEditId={props.firebaseId}/>
+        <Component_EventWindow_EditEvent_Modal 
+          showEditModal={editmodal} 
+          closeEditModal={toggleEditmodal} 
+          eventEditTitle={props.title} 
+          eventEditTime={props.time} 
+          eventEditId={props.firebaseId}
+        />
     </div>    
   )  
 }

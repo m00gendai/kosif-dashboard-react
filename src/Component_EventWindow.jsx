@@ -13,7 +13,6 @@ function Component_EventWindow(){
         const queryEvents = query(collection(db, "events"), orderBy("time"));
         const eventSnapshot = onSnapshot(queryEvents, (querySnapshot) => {
             setEventData(querySnapshot.docs.map(doc => {
-                console.log(doc.data().name, doc.data().time)
                 return {
                     name: doc.data().name,
                     time: doc.data().time, 
@@ -30,7 +29,14 @@ function Component_EventWindow(){
             <Component_EventWindow_NewEvent />
             {
             eventData.map((event, index) => 
-                <Component_EventWindow_Event key={index} title={event.name} time={event.time} default={event.default} firebaseId={event.firebaseId} isChecked={event.isChecked}/>
+                <Component_EventWindow_Event 
+                    key={index} 
+                    title={event.name} 
+                    time={event.time} 
+                    default={event.default} 
+                    firebaseId={event.firebaseId} 
+                    isChecked={event.isChecked}
+                />
             )
             }  
         </div>
