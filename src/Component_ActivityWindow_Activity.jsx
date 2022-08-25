@@ -8,6 +8,7 @@ function Component_ActivityWindow_Activity(props){
   async function deleteActivity(id, name, time){
     if(confirm(`Delete activity ${time} ${name}?`)){
       await deleteDoc(doc(db, "activities", id))
+      await deleteDoc(doc(db, "events", id))
   }}
 
   const [editActivityModal, setEditActivityModal] = useState(false)

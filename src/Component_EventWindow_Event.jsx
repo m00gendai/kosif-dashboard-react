@@ -1,6 +1,6 @@
 import {useState, useEffect} from "react"
 import Component_EventWindow_EditEvent_Modal from "./Component_EventWindow_EditEvent_Modal"
-import {doc, deleteDoc, updateDoc} from "firebase/firestore"
+import {doc, deleteDoc, updateDoc, getDoc} from "firebase/firestore"
 import {db} from "./firebase.js"
 
 function Component_EventWindow_Event(props){
@@ -61,7 +61,12 @@ function Component_EventWindow_Event(props){
   async function deleteEvent(id, name, time){
     if(confirm(`Delete event ${time} ${name}?`)){
       await deleteDoc(doc(db, "events", id))
-  }}
+      const docSnap = await getDoc(doc(db, "activities", id));
+      if (docSnap.exists()) {
+        await deleteDoc(doc(db, "activities", id))
+      }
+    }
+  }
 
   const [editmodal, setEditmodal] = useState(false)
     const toggleEditmodal = () => setEditmodal(!editmodal)

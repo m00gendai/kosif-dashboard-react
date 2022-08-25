@@ -14,6 +14,7 @@ function Component_ActivityWindow(){
         const queryActivities = query(collection(db, "activities"), orderBy("time"));
         const activitySnapshot = onSnapshot(queryActivities, (querySnapshot) => {
             setActivityData(querySnapshot.docs.map(doc => {
+                console.log(doc.data().name, doc.data().time)
                 return {
                     name: doc.data().name,
                     time: doc.data().time, 

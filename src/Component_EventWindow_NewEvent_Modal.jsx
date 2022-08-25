@@ -3,7 +3,7 @@ import {db} from "./firebase.js"
 
 function Component_EventWindow_NewEvent_Modal({show, close}){
     async function populateEventDB(eventName, eventTime){
-        if(eventName == "" || eventTime == ""){
+        if(eventName == ""){
             alert("please")
         } else {
             await addDoc(collection(db, "events"),{

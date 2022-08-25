@@ -13,6 +13,7 @@ function Component_EventWindow(){
         const queryEvents = query(collection(db, "events"), orderBy("time"));
         const eventSnapshot = onSnapshot(queryEvents, (querySnapshot) => {
             setEventData(querySnapshot.docs.map(doc => {
+                console.log(doc.data().name, doc.data().time)
                 return {
                     name: doc.data().name,
                     time: doc.data().time, 

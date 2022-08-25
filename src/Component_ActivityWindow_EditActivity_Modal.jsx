@@ -12,6 +12,11 @@ function Component_ActivityWindow_EditActivity_Modal({showActivityEditModal, clo
                     time: activityTime,
 
                 })
+                await updateDoc(doc(db, "events", activityEditId),{
+                    name: activityName,
+                    time: activityTime,
+
+                })
                 closeActivityEditModal()
     }}
 

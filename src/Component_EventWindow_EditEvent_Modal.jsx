@@ -1,5 +1,5 @@
 import {useState, useEffect, useRef} from "react"
-import {doc, collection, addDoc, updateDoc} from "firebase/firestore"
+import {doc, collection, addDoc, updateDoc, getDoc} from "firebase/firestore"
 import {db, querySnapshot} from "./firebase.js"
 
 function Component_ActivityWindow_EditActivity_Modal({showEditModal, closeEditModal, eventEditTitle, eventEditTime, eventEditId}){
@@ -13,6 +13,14 @@ function Component_ActivityWindow_EditActivity_Modal({showEditModal, closeEditMo
                     time: eventTime,
                     default: false
                 })
+                const docSnap = await getDoc(doc(db, "activities", eventEditId))
+                if(docSnap.exists()){
+                    await updateDoc(doc(db, "activities",eventEditId),{
+                        name: eventName,
+                        time: eventTime,
+                        default: false
+                    })
+                }
                 closeEditModal()
     }}
 

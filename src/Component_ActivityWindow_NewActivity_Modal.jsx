@@ -1,5 +1,5 @@
 import {useState, useEffect} from "react"
-import {collection, addDoc} from "firebase/firestore"
+import {collection, doc, addDoc, getDoc, setDoc} from "firebase/firestore"
 import {db} from "./firebase.js"
 
 function Component_ActivityWindow_NewActivity_Modal({show, close}){
@@ -14,8 +14,14 @@ const [activityType, setActivityType] = useState("area")
                 name: activityName,
                 time: activityTime,
                 type: activityType
+            }).then(docRef => {
+                if(activityType == "firing"){
+                    setDoc(doc(db, "events", docRef.id),{
+                        name: activityName,
+                        time: activityTime
+                    })
+                }
             })
-            
         }
         close()   
     }
