@@ -1,14 +1,14 @@
 import {useState, useEffect, useRef} from "react"
-import {collection, addDoc} from "firebase/firestore"
+import {doc, collection, addDoc, updateDoc} from "firebase/firestore"
 import {db, querySnapshot} from "./firebase.js"
 
-function Component_EventWindow_EditEvent_Modal({showEditModal, closeEditModal, eventEditTitle, eventEditTime}){
+function Component_ActivityWindow_EditActivity_Modal({showEditModal, closeEditModal, eventEditTitle, eventEditTime, eventEditId}){
 
  async function populateEventDB(eventName, eventTime){
      if(eventName == "" || eventTime == ""){
          alert("please")
      } else {
-        await addDoc(collection(db, "events"),{
+        await updateDoc(doc(db, "events",eventEditId),{
                     name: eventName,
                     time: eventTime,
                     default: false
@@ -58,4 +58,4 @@ showEditModal ?
     )
 }
 
-export default Component_EventWindow_EditEvent_Modal
+export default Component_ActivityWindow_EditActivity_Modal

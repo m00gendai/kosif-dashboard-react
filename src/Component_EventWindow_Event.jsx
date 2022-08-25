@@ -81,7 +81,7 @@ function Component_EventWindow_Event(props){
                 toggleEditmodal()
                 }} src="pencil-svgrepo-com.svg" />
         </div>}
-        <Component_EventWindow_EditEvent_Modal showEditModal={editmodal} closeEditModal={toggleEditmodal} eventEditTitle={props.title} eventEditTime={props.time}/>
+        <Component_EventWindow_EditEvent_Modal showEditModal={editmodal} closeEditModal={toggleEditmodal} eventEditTitle={props.title} eventEditTime={props.time} eventEditId={props.firebaseId}/>
     </div>    
   )  
 }

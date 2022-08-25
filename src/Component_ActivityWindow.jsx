@@ -17,7 +17,8 @@ function Component_ActivityWindow(){
                 return {
                     name: doc.data().name,
                     time: doc.data().time, 
-                    firebaseId: doc.id
+                    firebaseId: doc.id,
+                    type: doc.data().type
                 }
             }))
         })
@@ -32,7 +33,7 @@ function Component_ActivityWindow(){
             <Component_ActivityWindow_NewActivity />
             {
             activityData.map((activity, index) => 
-                <Component_ActivityWindow_Activity key={index} title={activity.name} time={activity.time} firebaseId={activity.firebaseId} />
+                <Component_ActivityWindow_Activity key={index} title={activity.name} time={activity.time} firebaseId={activity.firebaseId} type={activity.type} />
             )
             }  
             </div>

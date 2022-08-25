@@ -1,0 +1,75 @@
+#component_activitywindow_editactivity_modal{
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: 0;
+    padding: 0;
+    background: rgba(0,0,0,0.3);
+    z-index: 200;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#component_Activitywindow_editactivity_modalbody{
+    padding: 1rem;
+    background-image: url("assets/newEvent_background.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    box-shadow: 0px 2px 20px 2px black;
+}
+
+#component_Activitywindow_editactivity_modalbody h2{
+    width: 100%;
+    text-align: center;
+}
+
+.component_Activitywindow_editactivity_modalbody_input_container{
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+    margin: 3rem 0 3rem 0;
+}
+
+.component_Activitywindow_editactivity_modalbody_input_container fieldset input{
+    font-size: 1.5rem;
+}
+
+.component_Activitywindow_editactivity_modalbody_button_container {
+    position: relative;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    margin: 0 0 2rem 0;
+}
+
+.component_Activitywindow_editactivity_modalbody_button_container > button,
+.component_Activitywindow_editactivity_modalbody_button_container > input
+ {
+    position: relative;
+    border-radius: 180px;
+    width: 3ch;
+    aspect-ratio: 1/1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3rem;
+    padding: 0;
+    color: white;
+    box-shadow: none;
+    border: none;
+}
+
+#component_Activitywindow_editactivity_modalbody_button_add {
+background: green;
+margin: 0 1rem 0 0;
+}
+
+#component_Activitywindow_editactivity_modalbody_button_close {
+    background: red;
+    margin: 0 0 0 1rem;
+}

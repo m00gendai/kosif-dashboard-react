@@ -7,7 +7,6 @@ function Component_ActivityWindow_NewActivity_Modal({show, close}){
 const [activityType, setActivityType] = useState("area")
 
     async function populateActivityDB(activityName, activityTime, activityType){
-        console.log(activityName, activityTime, activityType)
         if(activityName == "" || activityTime == ""){
             alert("please")
         } else {
