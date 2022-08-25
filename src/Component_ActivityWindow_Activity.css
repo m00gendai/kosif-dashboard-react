@@ -8,6 +8,13 @@
     aspect-ratio: 1/0.5;
     margin: 0.25rem;
     flex-wrap: wrap;
+    background-image: url("./assets/silver-4487688_640.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.component_activitywindow_activity_firing {
+    background-image: url("./assets/grunge-6097785_640.jpg");
 }
 
 .component_activitywindow_activity:nth-child(1){
@@ -29,16 +36,19 @@ background: rgba(0,0,0,0.5);
 }
 
 .component_activitywindow_activity_text{
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
     width: 100%;
 }
-.component_activitywindow_activity_text_title{
+.component_activitywindow_activity_Text_title{
+    font-size: 2rem;
     font-weight: bolder;
     width: 100%;
     text-align: center;
+    margin: 2rem 0 1rem 0;
 }
 .component_activitywindow_activity_text_time {
     width: 100%;

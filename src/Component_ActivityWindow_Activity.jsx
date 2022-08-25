@@ -15,7 +15,7 @@ function Component_ActivityWindow_Activity(props){
   const toggleEditActivityModal = () => setEditActivityModal(!editActivityModal)
 
   return(
-    <div className="component_activitywindow_activity" id={`event_${props.firebaseId}`}>
+    <div className={`component_activitywindow_activity component_activitywindow_activity_${props.type}`} id={`event_${props.firebaseId}`}>
      <div className="component_activitywindow_activity_typeicon">
        {
          props.type == "area" 

@@ -5,6 +5,10 @@ import {db} from "./firebase.js"
 
 function Component_EventWindow_Event(props){
 
+     const today = new Date()
+ //   const weekday = today.toLocaleDateString("en-US", { weekday: 'long' }); 
+const weekday = "Wednesday"
+
   const [date, setDate] = useState(new Date())
   const [color, setColor] = useState("white")
   const [checked, setChecked] = useState(false)
@@ -68,8 +72,10 @@ function Component_EventWindow_Event(props){
     }
   }
 
+
   const [editmodal, setEditmodal] = useState(false)
     const toggleEditmodal = () => setEditmodal(!editmodal)
+
 
   return(
     <div className={`component_eventwindow_event component_eventwindow_event_${color}`} id={`event_${props.firebaseId}`}>
@@ -93,7 +99,7 @@ function Component_EventWindow_Event(props){
           eventEditTime={props.time} 
           eventEditId={props.firebaseId}
         />
-    </div>    
+    </div>   
   )  
 }
 

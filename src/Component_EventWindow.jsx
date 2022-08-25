@@ -18,7 +18,8 @@ function Component_EventWindow(){
                     time: doc.data().time, 
                     isChecked: doc.data().checked,
                     default: doc.data().default,
-                    firebaseId: doc.id
+                    firebaseId: doc.id,
+                    visibility: doc.data().visibility
                 }
             }))
         })
@@ -36,6 +37,7 @@ function Component_EventWindow(){
                     default={event.default} 
                     firebaseId={event.firebaseId} 
                     isChecked={event.isChecked}
+                    visibility={event.visibility}
                 />
             )
             }  
