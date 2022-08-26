@@ -1,6 +1,7 @@
 import {useState, useEffect, useRef} from "react"
 import {doc, collection, addDoc, updateDoc} from "firebase/firestore"
 import {db, querySnapshot} from "./firebase.js"
+import Component_ModalActionButtonContainer from "./Component_ModalActionButtonContainer.jsx"
 
 function Component_ActivityWindow_EditActivity_Modal({showActivityEditModal, closeActivityEditModal, activityEditTitle, activityEditTime, activityEditId}){
  async function populateActivityDB(activityName, activityTime){
@@ -48,10 +49,10 @@ showActivityEditModal ?
                 <input type="text" pattern="[0-9]+" placeholder="0930" id="editActivityTimeValue" required value={editActivityTimeState} onChange={handleEditActivityTimeChange}></input>
                 </fieldset>
                 </div>
-                <div className="component_Activitywindow_editactivity_modalbody_button_container">
-                <button id="component_Activitywindow_editactivity_modalbody_button_add" onClick={() =>populateActivityDB(document.getElementById("editActivityNameValue").value, document.getElementById("editActivityTimeValue").value)}>{`\u{1F5F8}`}</button>
-                <button id="component_Activitywindow_editactivity_modalbody_button_close" onClick={()=>closeActivityEditModal()}>{`\u{2717}`}</button>
-                </div>
+                <Component_ModalActionButtonContainer
+                    confirm={() => populateActivityDB(document.getElementById("editActivityNameValue").value, document.getElementById("editActivityTimeValue").value)}
+                    deny={()=>closeActivityEditModal()}
+                />
             </div>
             
 

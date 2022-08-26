@@ -1,6 +1,7 @@
 import {useState, useEffect} from "react"
 import {collection, doc, addDoc, getDoc, setDoc} from "firebase/firestore"
 import {db} from "./firebase.js"
+import Component_ModalActionButtonContainer from "./Component_ModalActionButtonContainer.jsx"
 
 function Component_ActivityWindow_NewActivity_Modal({show, close}){
 
@@ -30,7 +31,7 @@ const [activityType, setActivityType] = useState("area")
         <>
         {
         show ?
-            <div id="component_activitywindow_newactivity_modal" className="">
+            <div id="component_activitywindow_newactivity_modal" >
                 <div id="component_Activitywindow_newactivity_modalbody">
                     <h2>Create New Activity</h2>
                     <div className="component_Activitywindow_newactivity_modalbody_input_container">
@@ -50,10 +51,10 @@ const [activityType, setActivityType] = useState("area")
                             <input type="text" pattern="[0-9]+" placeholder="0930" id="newActivityTimeValue" required></input>
                         </fieldset>
                     </div>
-                    <div className="component_Activitywindow_newactivity_modalbody_button_container">
-                        <button id="component_Activitywindow_newactivity_modalbody_button_add" onClick={() =>{populateActivityDB(document.getElementById("newActivityNameValue").value, document.getElementById("newActivityTimeValue").value, activityType)}}>{`\u{1F5F8}`}</button>
-                        <button id="component_Activitywindow_newactivity_modalbody_button_close" onClick={()=>close()}>{`\u{2717}`}</button>
-                    </div>
+                    <Component_ModalActionButtonContainer
+                        confirm={() => populateActivityDB(document.getElementById("newActivityNameValue").value, document.getElementById("newActivityTimeValue").value, activityType)}
+                        deny={() => close()}
+                    />
                </div>
             </div>
         : 

@@ -2,6 +2,10 @@ import {useState, useEffect} from "react"
 import Component_EventWindow_EditEvent_Modal from "./Component_EventWindow_EditEvent_Modal"
 import {doc, deleteDoc, updateDoc, getDoc} from "firebase/firestore"
 import {db} from "./firebase.js"
+import Checkbox from '@mui/material/Checkbox';
+import ModeIcon from '@mui/icons-material/Mode'
+import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
+
 
 function Component_EventWindow_Event(props){
 
@@ -79,7 +83,21 @@ const weekday = "Wednesday"
 
   return(
     <div className={`component_eventwindow_event component_eventwindow_event_${color}`} id={`event_${props.firebaseId}`}>
-      <input type="checkbox" checked={checked}id={`event_checkbox_${props.firebaseId}`} onChange={(e) => {setChecked(!checked);setHandler(e); setTargetId(props.firebaseId)}} ></input>
+      <Checkbox 
+        checked={checked} 
+        id={`event_checkbox_${props.firebaseId}`} 
+        onChange={(e) => {
+          setChecked(!checked);
+          setHandler(e); 
+          setTargetId(props.firebaseId)
+        }}
+        sx={{
+          color: "black",
+          '&.Mui-checked': {
+            color: "black"
+          }
+        }} 
+      />
       <div className="eventTextField" >
         {props.time} {props.title}
         </div>
@@ -87,10 +105,14 @@ const weekday = "Wednesday"
         "" 
         : 
         <div className="eventEditField">
-          <img className="eventEditFieldAction" onClick={() => deleteEvent(props.firebaseId, props.title, props.time)} src="trash-svgrepo-com.svg" />
-          <img className="eventEditFieldAction" onClick={(e) => {
-               toggleEditmodal()
-                }} src="pencil-svgrepo-com.svg" />
+          <ModeIcon 
+            onClick={(e) => toggleEditmodal()} 
+            sx={{color: "green"}}
+          />
+          <DeleteForeverIcon 
+            onClick={() => deleteEvent(props.firebaseId, props.title, props.time)} 
+            sx={{color: "red"}}
+          />
         </div>}
         <Component_EventWindow_EditEvent_Modal 
           showEditModal={editmodal} 

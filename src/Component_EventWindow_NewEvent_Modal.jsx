@@ -1,5 +1,6 @@
 import {collection, addDoc} from "firebase/firestore"
 import {db} from "./firebase.js"
+import Component_ModalActionButtonContainer from "./Component_ModalActionButtonContainer.jsx"
 
 function Component_EventWindow_NewEvent_Modal({show, close}){
     async function populateEventDB(eventName, eventTime){
@@ -20,7 +21,7 @@ function Component_EventWindow_NewEvent_Modal({show, close}){
         <>
         {
         show ?
-            <div id="component_eventwindow_newevent_modal" className="">
+            <div id="component_eventwindow_newevent_modal">
                 <div id="component_Eventwindow_newevent_modalbody">
                     <h2>Create New Event</h2>
                     <div className="component_Eventwindow_newevent_modalbody_input_container">
@@ -33,10 +34,10 @@ function Component_EventWindow_NewEvent_Modal({show, close}){
                             <input type="text" pattern="[0-9]+" placeholder="0930" id="newEventTimeValue" required></input>
                         </fieldset>
                     </div>
-                    <div className="component_Eventwindow_newevent_modalbody_button_container">
-                        <button id="component_Eventwindow_newevent_modalbody_button_add" onClick={() =>{populateEventDB(document.getElementById("newEventNameValue").value, document.getElementById("newEventTimeValue").value)}}>{`\u{1F5F8}`}</button>
-                        <button id="component_Eventwindow_newevent_modalbody_button_close" onClick={()=>close()}>{`\u{2717}`}</button>
-                    </div>
+                    <Component_ModalActionButtonContainer 
+                        confirm={() => populateEventDB(document.getElementById("newEventNameValue").value, document.getElementById("newEventTimeValue").value)}
+                        deny={() => close()}
+                    />
                </div>
             </div>
         : 

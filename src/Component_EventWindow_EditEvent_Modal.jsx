@@ -1,6 +1,7 @@
 import {useState, useEffect, useRef} from "react"
 import {doc, collection, addDoc, updateDoc, getDoc} from "firebase/firestore"
 import {db, querySnapshot} from "./firebase.js"
+import Component_ModalActionButtonContainer from "./Component_ModalActionButtonContainer.jsx"
 
 function Component_ActivityWindow_EditActivity_Modal({showEditModal, closeEditModal, eventEditTitle, eventEditTime, eventEditId}){
 
@@ -44,17 +45,17 @@ showEditModal ?
                 <div className="component_Eventwindow_editevent_modalbody_input_container">
                 <fieldset>
                     <legend>Event Name</legend>
-                <input type="text" placeholder="Coffee with Shra" id="editEventNameValue" required value={eventEditTitle} onChange={handleEditEventTitleChange}></input>
+                <input type="text" placeholder="Coffee with Shra" id="editEventNameValue" required value={editEventTitleState} onChange={handleEditEventTitleChange}></input>
                 </fieldset>
                 <fieldset>
                     <legend>Event Start Time</legend>
-                <input type="text" pattern="[0-9]+" placeholder="0930" id="editEventTimeValue" required value={eventEditTime} onChange={handleEditEventTimeChange}></input>
+                <input type="text" pattern="[0-9]+" placeholder="0930" id="editEventTimeValue" required value={editEventTimeState} onChange={handleEditEventTimeChange}></input>
                 </fieldset>
                 </div>
-                <div className="component_Eventwindow_editevent_modalbody_button_container">
-                <button id="component_Eventwindow_editevent_modalbody_button_add" onClick={() =>populateEventDB(document.getElementById("editEventNameValue").value, document.getElementById("editEventTimeValue").value)}>{`\u{1F5F8}`}</button>
-                <button id="component_Eventwindow_editevent_modalbody_button_close" onClick={()=>closeEditModal()}>{`\u{2717}`}</button>
-                </div>
+                 <Component_ModalActionButtonContainer 
+                        confirm={() => populateEventDB(document.getElementById("editEventNameValue").value, document.getElementById("editEventTimeValue").value)}
+                        deny={() => closeEditModal()}
+                    />
             </div>
             
 

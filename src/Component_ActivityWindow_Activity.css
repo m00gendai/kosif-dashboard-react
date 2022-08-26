@@ -17,13 +17,6 @@
     background-image: url("./assets/grunge-6097785_640.jpg");
 }
 
-.component_activitywindow_activity:nth-child(1){
-background: rgba(0,0,0,0.5);
-}
-.component_activitywindow_activity:nth-child(1):hover {
-    background: rgba(0, 0, 0, 0.6);
-}
-
 .component_activitywindow_activity_typeicon {
     position: absolute;
     top: 0.5rem;
@@ -42,6 +35,7 @@ background: rgba(0,0,0,0.5);
     align-items: center;
     flex-wrap: wrap;
     width: 100%;
+    color: black;
 }
 .component_activitywindow_activity_Text_title{
     font-size: 2rem;
@@ -61,7 +55,7 @@ background: rgba(0,0,0,0.5);
     display: flex;
     justify-content: space-around;
     align-items: center;
-    background: rgba(0,0,0,0.5);
+    background: rgba(255,255,255,0.5);
     height: 2rem;
     border-radius: 5px;
 }

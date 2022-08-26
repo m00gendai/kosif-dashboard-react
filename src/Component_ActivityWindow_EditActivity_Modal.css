@@ -14,11 +14,15 @@
 }
 
 #component_Activitywindow_editactivity_modalbody{
+    width: 25vw;
     padding: 1rem;
     background-image: url("assets/newEvent_background.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     box-shadow: 0px 2px 20px 2px black;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 #component_Activitywindow_editactivity_modalbody h2{
@@ -28,14 +32,17 @@
 
 .component_Activitywindow_editactivity_modalbody_input_container{
     position: relative;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    display: flex;
+    flex-wrap: wrap;
     width: 100%;
     margin: 3rem 0 3rem 0;
 }
-
+.component_Activitywindow_editactivity_modalbody_input_container fieldset {
+   width: 100%;
+}
 .component_Activitywindow_editactivity_modalbody_input_container fieldset input{
     font-size: 1.5rem;
+    width: 100%;
 }
 
 .component_Activitywindow_editactivity_modalbody_button_container {

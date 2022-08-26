@@ -1,0 +1,8 @@
+.component_modalactionbuttoncontainer{
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    align-items: center;
+    width: 50%;
+    position: relative;
+}

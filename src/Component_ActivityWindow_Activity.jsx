@@ -2,6 +2,10 @@ import {useState, useEffect} from "react"
 import Component_ActivityWindow_EditActivity_Modal from "./Component_ActivityWindow_EditActivity_Modal.jsx"
 import {doc, deleteDoc, updateDoc} from "firebase/firestore"
 import {db} from "./firebase.js"
+import LocalFireDepartmentIcon from '@mui/icons-material/LocalFireDepartment';
+import FormatShapesIcon from '@mui/icons-material/FormatShapes'
+import ModeIcon from '@mui/icons-material/Mode'
+import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 
 function Component_ActivityWindow_Activity(props){
 
@@ -20,9 +24,9 @@ function Component_ActivityWindow_Activity(props){
        {
          props.type == "area" 
          ?
-         <img src="switzerland-map-country-land-svgrepo-com.svg" />
+        <FormatShapesIcon sx={{ color: "#000",fontSize: "2rem" }}/>
          :
-         <img src="cannon-war-svgrepo-com.svg" />
+        <LocalFireDepartmentIcon sx={{ color: "#000", fontSize: "2rem" }}/>
          
        }
      </div>
@@ -35,10 +39,10 @@ function Component_ActivityWindow_Activity(props){
      </div>
      </div>
      <div className="component_activitywindow_activity_editfield">
-       <img onClick={async () => {
+       <ModeIcon onClick={async () => {
          toggleEditActivityModal()}
-         } src="pencil-svgrepo-com.svg" className="component_activitywindow_activity_editfield_action" />
-       <img onClick={() => deleteActivity(props.firebaseId, props.title, props.time)} src="trash-svgrepo-com.svg" className="component_activitywindow_activity_editfield_action" />
+         } sx={{color: "green"}}/>
+       <DeleteForeverIcon onClick={() => deleteActivity(props.firebaseId, props.title, props.time)} sx={{color: "red"}}/>
      </div>
         <Component_ActivityWindow_EditActivity_Modal showActivityEditModal={editActivityModal} closeActivityEditModal={toggleEditActivityModal} activityEditTitle={props.title} activityEditTime={props.time} activityEditId={props.firebaseId}/>
     </div>    
