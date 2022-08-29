@@ -7,6 +7,7 @@ function Component_EventWindow_NewEvent(){
     const toggleEventModal = () => setEventModal(!eventModal)
    
     return(
+        <>
         <div 
             className="component_eventwindow_event" 
             id="component_eventwindow_newevent"
@@ -16,8 +17,9 @@ function Component_EventWindow_NewEvent(){
                 }
             }>
             <AddTaskIcon />
+            </div>
             <Component_EventWindow_NewEvent_Modal show={eventModal} close={toggleEventModal} />
-        </div>
+        </>
     )
 }
 
