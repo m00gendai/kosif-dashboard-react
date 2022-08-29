@@ -35,17 +35,12 @@
     display: flex;
     flex-wrap: wrap;
     width: 100%;
-    margin: 3rem 0 3rem 0;
-}
-
-.component_Activitywindow_newactivity_modalbody_input_container fieldset {
-    width: 100%;
 
 }
 
-.component_Activitywindow_newactivity_modalbody_input_container fieldset input[type="text"]{
+.component_Activitywindow_newactivity_modalbody_input_container .MuiFormControl-root{
     width: 100%;
-    font-size: 1.5rem;
+    margin: 0 0 1rem 0;
 }
 
 .component_Activitywindow_newactivity_modalbody_button_container {

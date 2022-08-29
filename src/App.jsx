@@ -15,6 +15,7 @@ import "./Component_EventWindow_NewEvent.css"
 import "./Component_EventWindow_NewEvent_Modal.css"
 import "./Component_EventWindow_EditEvent_Modal.css"
 import "./Component_ModalActionButtonContainer.css"
+import "./Component_Modal_New_Edit.css"
 
 function App() {
   return (

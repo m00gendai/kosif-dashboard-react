@@ -1,5 +1,5 @@
 import {useState} from "react"
-import Component_ActivityWindow_NewActivity_Modal from "./Component_ActivityWindow_NewActivity_Modal"
+import Component_Modal_New_Edit from "./Component_Modal_New_Edit.jsx"
 import PostAddIcon from '@mui/icons-material/PostAdd';
 
 function Component_ActivityWindow_NewActivity(){
@@ -20,7 +20,7 @@ function Component_ActivityWindow_NewActivity(){
             <PostAddIcon 
                 sx={{fontSize: "3rem"}}/>
         </div>
-        <Component_ActivityWindow_NewActivity_Modal show={activityModal} close={toggleActivityModal} />
+        <Component_Modal_New_Edit show={activityModal} close={toggleActivityModal} type={"Activity"}/>
         </>
     )
 }

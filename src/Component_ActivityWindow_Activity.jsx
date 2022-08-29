@@ -22,7 +22,7 @@ function Component_ActivityWindow_Activity(props){
     <div className={`component_activitywindow_activity component_activitywindow_activity_${props.type}`} id={`activity_${props.firebaseId}`}>
      <div className="component_activitywindow_activity_typeicon">
        {
-         props.type == "area" 
+         props.type == "Area" 
          ?
         <FormatShapesIcon sx={{ color: "#000",fontSize: "2rem" }}/>
          :

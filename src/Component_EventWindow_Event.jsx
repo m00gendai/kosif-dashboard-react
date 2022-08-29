@@ -29,7 +29,7 @@ const weekday = "Wednesday"
 
   useEffect(() => {
     let timerID = setInterval(() => tick(), 1000)
-    if( checked){
+    if(checked){
       document.getElementById(`event_${props.firebaseId}`).classList.add("component_eventwindow_event_green")
     } else if(!checked){
       document.getElementById(`event_${props.firebaseId}`).classList.remove("component_eventwindow_event_green")
