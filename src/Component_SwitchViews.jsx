@@ -12,6 +12,11 @@ function Component_SwitchViews(){
                     DABS Tomorrow
                 </button>
             </div>
+            <div id="component_switchviews">
+                <button className="component_switchviews_option" onClick={() => window.open("http://eaip.skyguide.corp")}>
+                    eAIP Switzerland
+                </button>
+            </div>
         </div>
     )
 }
