@@ -52,18 +52,6 @@
     z-index: 99;
 }
 
-#profileMenu{
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    top: 0;
-    width: 30vw;
-    background: white;
-    z-index: 100;
-    transition: 1s;
-    box-shadow: 0px 0px 10px 0px black;
-}
-
 .timeZone{
     display: flex;
     justify-content: center;

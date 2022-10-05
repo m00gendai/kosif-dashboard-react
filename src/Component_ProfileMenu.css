@@ -1,0 +1,54 @@
+#profileMenu {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    top: 0;
+    width: 30vw;
+    background: white;
+    z-index: 100;
+    transition: 1s;
+    box-shadow: 0px 0px 10px 0px black;
+    display: flex;
+    justify-content: center;
+    align-content: flex-start;
+    flex-wrap: wrap;
+    padding: 1rem;
+}
+
+#closeProfileMenu{
+    position: absolute;
+    top: 1rem;
+    right:1rem;
+    height: 2rem;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    background: red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#profileMenuPic{
+    margin: 2rem 0 0 0;
+    width: 10rem;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#profileMenuName{
+    width: 100%;
+    font-size: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+    
+}
+
+#profileMenuName p{
+    width: 100%;
+    text-align: left;
+}

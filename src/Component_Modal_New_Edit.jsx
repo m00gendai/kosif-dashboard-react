@@ -18,7 +18,6 @@ function Component_Modal_New_Edit({show, close, type}){
     const [newActivityTime, setNewActivityTime] = useState("")
 
     useEffect(() =>{
-        setActivityType("Area");
         setNewActivityName("")
         setNewActivityTime("")
     },[show])
@@ -37,11 +36,13 @@ async function populateActivityDB(activityName, activityTime, activityType){
                 type: activityType
             }).then(docRef => {
                 if(activityType == "Firing"){
+
                     setDoc(doc(db, "events", docRef.id),{
                         name: activityName,
                         time: activityTime,
                         default: false,
                         checked: false,
+                        visibility: "all"
                     })
                 }
             })
@@ -61,7 +62,7 @@ async function populateActivityDB(activityName, activityTime, activityType){
                         <FormLabel id="new_activity_form">Activity Type</FormLabel>
                         <RadioGroup
                             aria-labelledby="new_activity_form_group_label"
-                            defaultValue={activityType}
+                            defaultValue="Area"
                             name="radio-buttons-group"
                         >
                             <FormControlLabel 
@@ -69,6 +70,7 @@ async function populateActivityDB(activityName, activityTime, activityType){
                                 control={<Radio />} 
                                 label="Area" 
                                 onChange={handleChange}
+                                
                             />
                             <FormControlLabel 
                                 value="Firing" 

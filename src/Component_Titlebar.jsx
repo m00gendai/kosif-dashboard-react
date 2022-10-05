@@ -6,7 +6,7 @@ function Component_Titlebar({user}){
    const [date, setDate] = useState(new Date())
    const [userPic, setUserPic] = useState(user.providerData.photoURL ? user.providerData.photoURL : "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png" )
    const [showProfileMenu, isShowProfileMenu] = useState(false)
-
+   
     useEffect(() => {
         let timerID = setInterval(() => tick(), 1000)
 
@@ -25,8 +25,8 @@ function Component_Titlebar({user}){
                 backgroundImage: `url(${userPic})`
             }}
             onClick={()=>isShowProfileMenu(true)}></div>
-            {showProfileMenu ? <ProfileMenu isOpen={showProfileMenu} setIsOpen={isShowProfileMenu} /> : null}
-            <h1>Christines KOSIF Dashboard</h1>
+            {showProfileMenu ? <ProfileMenu user={user} userPic={userPic} isOpen={showProfileMenu} setIsOpen={isShowProfileMenu} /> : null}
+            <h1>{user.providerData[0].displayName != null ? user.providerData[0].displayName.endsWith("s") ? `${user.providerData[0].displayName}'` : `${user.providerData[0].displayName}s` : "user"} KOSIF Dashboard</h1>
             <div className="timeZone">
                 <div id="localtime" className="timeZoneItem">
                     <img src="switzerland-svgrepo-com.svg" />
