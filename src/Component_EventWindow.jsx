@@ -8,6 +8,9 @@ import "./Component_EventWindow_Event.css"
 
 function Component_EventWindow(){
     const [eventData, setEventData] = useState([])
+    const date = new Date()
+    const daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+    const weekday = daysOfWeek[date.getDay()]    
     
     useEffect(() => {
         const queryEvents = query(collection(db, "events"), orderBy("time"));
@@ -30,6 +33,7 @@ function Component_EventWindow(){
             <Component_EventWindow_NewEvent />
             {
             eventData.map((event, index) => 
+            (event.visibility == "all" || event.visibility == weekday) ?
                 <Component_EventWindow_Event 
                     key={index} 
                     title={event.name} 
@@ -39,6 +43,7 @@ function Component_EventWindow(){
                     isChecked={event.isChecked}
                     visibility={event.visibility}
                 />
+                : null
             )
             }  
         </div>
