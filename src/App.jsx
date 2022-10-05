@@ -37,6 +37,7 @@ function App() {
 
 const auth = getAuth();
 const [isLoggedIn, setIsLoggedIn] = useState(false)
+const [setUser, doSetUser] = useState(null)
 
 const [values, setValues] = useState({
     user: '',
@@ -66,13 +67,7 @@ onAuthStateChanged(auth, (user) => {
   if (user) {
 
     const uid = user.uid;
-    user.providerData.forEach((profile) => {
-    console.log("Sign-in provider: " + profile.providerId);
-    console.log("  Provider-specific UID: " + profile.uid);
-    console.log("  Name: " + profile.displayName);
-    console.log("  Email: " + profile.email);
-    console.log("  Photo URL: " + profile.photoURL);
-  });
+    
 
     
   }})
@@ -80,7 +75,7 @@ onAuthStateChanged(auth, (user) => {
   return (
     isLoggedIn ?
     <div className="App">
-      <Component_Titlebar />
+      <Component_Titlebar user={setUser}/>
       
   
     <div id="mainWindow">
@@ -145,7 +140,7 @@ onAuthStateChanged(auth, (user) => {
     // Signed in 
 
     const user = userCredential.user;
-
+doSetUser(user)
 setIsLoggedIn(true)
   })
   .catch((error) => {
