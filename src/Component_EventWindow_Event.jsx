@@ -9,10 +9,6 @@ import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 
 function Component_EventWindow_Event(props){
 
-     const today = new Date()
- //   const weekday = today.toLocaleDateString("en-US", { weekday: 'long' }); 
-const weekday = "Wednesday"
-
   const [date, setDate] = useState(new Date())
   const [color, setColor] = useState("white")
   const [checked, setChecked] = useState(false)
