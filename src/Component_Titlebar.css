@@ -35,9 +35,35 @@
     transform: scaleX(-1);
     background-image: url("assets/armour-2026592.svg");
         background-repeat: no-repeat;
-        background-position: 95%, 0%;
+        background-position: 90%, 0%;
         background-size: contain;
 }
+
+#profileMenuIcon{
+    position: absolute;
+    left: 1rem;
+    margin: auto;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 80%;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    z-index: 99;
+}
+
+#profileMenu{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    top: 0;
+    width: 30vw;
+    background: white;
+    z-index: 100;
+    transition: 1s;
+    box-shadow: 0px 0px 10px 0px black;
+}
+
 .timeZone{
     display: flex;
     justify-content: center;
