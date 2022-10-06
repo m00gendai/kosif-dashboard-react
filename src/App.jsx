@@ -3,7 +3,7 @@ import Component_EventWindow from "./Component_EventWindow.jsx"
 import Component_ActivityWindow from "./Component_ActivityWindow.jsx"
 import "./firebase.js"
 import { getAuth, onAuthStateChanged, signInWithEmailAndPassword, sendPasswordResetEmail } from "firebase/auth";
-import { useState } from "react"
+import { useState, useEffect} from "react"
 import IconButton from '@mui/material/IconButton';
 import Input from '@mui/material/Input';
 import FilledInput from '@mui/material/FilledInput';
@@ -16,6 +16,7 @@ import TextField from '@mui/material/TextField';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import Button from '@mui/material/Button';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 
 
 
@@ -38,12 +39,19 @@ function App() {
 const auth = getAuth();
 const [isLoggedIn, setIsLoggedIn] = useState(false)
 const [setUser, doSetUser] = useState(null)
+const [loginError, setLoginError] = useState ("")
 
 const [values, setValues] = useState({
     user: '',
     password: '',
     showPassword: false,
   });
+
+  useEffect(()=>{
+    if(loginError != ""){
+    document.getElementById("loginError").style.display = "flex"
+    }
+  },[loginError])
 
   const handleChange = (prop) => (event) => {
     setValues({ ...values, [prop]: event.target.value });
@@ -90,30 +98,20 @@ onAuthStateChanged(auth, (user) => {
   
 :
 
-<>
-    <FormControl sx={{ m: 1, width: '25ch' }} variant="outlined">
-      <InputLabel htmlFor="outlined-adornment-user">User</InputLabel>
+<div className="login">
+  <div className="loginForm">
+    <div className="loginFormElements">
+    <FormControl variant="outlined" fullWidth>
+      <InputLabel htmlFor="outlined-adornment-user">email</InputLabel>
           <OutlinedInput
             id="outlined-adornment-user"
             type='text'
             value={values.user}
             onChange={handleChange('user')}
-            endAdornment={
-              <InputAdornment position="end">
-                <IconButton
-                  aria-label="toggle password visibility"
-                  onClick={handleClickShowPassword}
-                  onMouseDown={handleMouseDownPassword}
-                  edge="end"
-                >
-                  {values.showPassword ? <VisibilityOff /> : <Visibility />}
-                </IconButton>
-              </InputAdornment>
-            }
             label="User"
           />
           </FormControl>
-          <FormControl sx={{ m: 1, width: '25ch' }} variant="outlined">
+          <FormControl variant="outlined" fullWidth>
           <InputLabel htmlFor="outlined-adornment-password">Password</InputLabel>
           <OutlinedInput
             id="outlined-adornment-password"
@@ -146,9 +144,13 @@ setIsLoggedIn(true)
   .catch((error) => {
     const errorCode = error.code;
     const errorMessage = error.message;
-console.log(errorMessage)
+    setLoginError(error.message)
   })}>Login</Button>
-  </>
+  <Button variant="outlined">Forgot Password</Button>
+  </div>
+  <div id="loginError">{loginError}</div>
+  </div>
+  </div>
   )
 }
   

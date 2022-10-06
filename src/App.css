@@ -30,3 +30,40 @@
 .popupShown{
   display: flex;
 }
+
+.login{
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url("https://cdn.pixabay.com/photo/2012/10/26/01/34/aircraft-63028_960_720.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.loginForm{
+  width: 40vw;
+  box-shadow: 2px 2px 5px 0px black;
+  padding: 1rem;
+  background: white;
+}
+
+.loginFormElements{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(25ch, 1fr));
+  grid-gap: 1rem;
+}
+
+#loginError{
+  width: 100%;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  color: red;
+  margin: 1rem 0 0 0;
+}
