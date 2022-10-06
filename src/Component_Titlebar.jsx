@@ -24,8 +24,8 @@ function Component_Titlebar({user}){
             <div id="profileMenuIcon" style={{
                 backgroundImage: `url(${userPic})`
             }}
-            onClick={()=>isShowProfileMenu(true)}></div>
-            {showProfileMenu ? <ProfileMenu user={user} userPic={userPic} isOpen={showProfileMenu} setIsOpen={isShowProfileMenu} /> : null}
+            onClick={()=>{document.getElementById("profileMenu").classList.toggle("is-open")}}></div>
+            <ProfileMenu user={user} userPic={userPic} isOpen={showProfileMenu} setIsOpen={isShowProfileMenu} />
             <h1>{user.providerData[0].displayName != null ? user.providerData[0].displayName.endsWith("s") ? `${user.providerData[0].displayName}'` : `${user.providerData[0].displayName}s` : "user"} KOSIF Dashboard</h1>
             <div className="timeZone">
                 <div id="localtime" className="timeZoneItem">

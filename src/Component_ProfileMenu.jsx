@@ -23,7 +23,8 @@ function ProfileMenu({user, userPic, isOpen, setIsOpen}){
 console.log(userName)
     return(
         <div id="profileMenu">
-            <div id="closeProfileMenu" onClick={()=>{setIsOpen(!isOpen)}}><CloseIcon sx={{ color: "white" }} /></div>
+          <div id="profileMenuInner">
+            <div id="closeProfileMenu" onClick={()=>{document.getElementById("profileMenu").classList.toggle("is-open")}}><CloseIcon sx={{ color: "white" }} /></div>
             {user.providerData.map((profile) => {
                return( <>
                 <div id="profileMenuPic" style={{
@@ -40,7 +41,7 @@ console.log(userName)
 
     </>)
   })}
-
+</div>
         </div>
     )
 }
