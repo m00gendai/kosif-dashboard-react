@@ -10,7 +10,8 @@ function Component_EventWindow_NewEvent_Modal({show, close}){
             await addDoc(collection(db, "events"),{
                 name: eventName,
                 time: eventTime,
-                default: false
+                default: false,
+                visibility: "all"
             })
             
         }
