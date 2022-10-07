@@ -1,11 +1,12 @@
 import {useState,useEffect} from "react"
 import ProfileMenu from "./Component_ProfileMenu"
 
-function Component_Titlebar({user}){
+function Component_Titlebar({user, setIsLoggedIn}){
 
    const [date, setDate] = useState(new Date())
-   const [userPic, setUserPic] = useState(user.providerData.photoURL ? user.providerData.photoURL : "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png" )
+   const [userPic, setUserPic] = useState(user.providerData[0].photoURL != "https://example.com/jane-q-user/profile.jpg" ? user.providerData[0].photoURL : "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png" )
    const [showProfileMenu, isShowProfileMenu] = useState(false)
+
    
     useEffect(() => {
         let timerID = setInterval(() => tick(), 1000)
@@ -25,8 +26,8 @@ function Component_Titlebar({user}){
                 backgroundImage: `url(${userPic})`
             }}
             onClick={()=>{document.getElementById("profileMenu").classList.toggle("is-open")}}></div>
-            <ProfileMenu user={user} userPic={userPic} isOpen={showProfileMenu} setIsOpen={isShowProfileMenu} />
-            <h1>{user.providerData[0].displayName != null ? user.providerData[0].displayName.endsWith("s") ? `${user.providerData[0].displayName}'` : `${user.providerData[0].displayName}s` : "user"} KOSIF Dashboard</h1>
+            <ProfileMenu user={user} userPic={userPic} setUserPic={setUserPic} isOpen={showProfileMenu} setIsOpen={isShowProfileMenu} setIsLoggedIn={setIsLoggedIn}/>
+            <h1>{user.providerData[0].displayName != null ? user.providerData[0].displayName.endsWith("s") ? `${user.providerData[0].displayName.toUpperCase()}'` : `${user.providerData[0].displayName.toUpperCase()}S` : "USER"} KOSIF DASHBOARD</h1>
             <div className="timeZone">
                 <div id="localtime" className="timeZoneItem">
                     <img src="switzerland-svgrepo-com.svg" />

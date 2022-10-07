@@ -2,7 +2,7 @@ import Component_Titlebar from "./Component_Titlebar.jsx"
 import Component_EventWindow from "./Component_EventWindow.jsx"
 import Component_ActivityWindow from "./Component_ActivityWindow.jsx"
 import "./firebase.js"
-import { getAuth, onAuthStateChanged, signInWithEmailAndPassword, sendPasswordResetEmail } from "firebase/auth";
+import { getAuth, onAuthStateChanged, signInWithEmailAndPassword, sendPasswordResetEmail, setPersistence, browserLocalPersistence } from "firebase/auth";
 import { useState, useEffect} from "react"
 import IconButton from '@mui/material/IconButton';
 import Input from '@mui/material/Input';
@@ -37,6 +37,9 @@ import "./Component_Modal_New_Edit.css"
 function App() {
 
 const auth = getAuth();
+
+
+
 const [isLoggedIn, setIsLoggedIn] = useState(false)
 const [setUser, doSetUser] = useState(null)
 const [loginError, setLoginError] = useState ("")
@@ -75,15 +78,15 @@ onAuthStateChanged(auth, (user) => {
   if (user) {
 
     const uid = user.uid;
-    
-
+doSetUser(user)
+setIsLoggedIn(true)
     
   }})
 
   return (
     isLoggedIn ?
     <div className="App">
-      <Component_Titlebar user={setUser}/>
+      <Component_Titlebar user={setUser} setIsLoggedIn={setIsLoggedIn}/>
       
   
     <div id="mainWindow">
@@ -138,8 +141,7 @@ onAuthStateChanged(auth, (user) => {
     // Signed in 
 
     const user = userCredential.user;
-doSetUser(user)
-setIsLoggedIn(true)
+
   })
   .catch((error) => {
     const errorCode = error.code;
