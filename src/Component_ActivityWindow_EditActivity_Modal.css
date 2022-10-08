@@ -1,18 +1,3 @@
-#component_activitywindow_editactivity_modal{
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    margin: 0;
-    padding: 0;
-    background: rgba(0,0,0,0.3);
-    z-index: 200;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
 #component_Activitywindow_editactivity_modalbody{
     width: 25vw;
     padding: 1rem;

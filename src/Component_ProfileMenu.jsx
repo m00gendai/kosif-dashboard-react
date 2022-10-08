@@ -77,7 +77,7 @@ console.log(picImagesRef.fullPath)
 });
                 }}
                 >Change</Button></div>
-                <div><Button variant="outlined" onClick={()=>{signOut(auth).then(() => {
+                <div><Button variant="contained" color="error" sx={{position: "absolute", bottom: "-2px", left: "-2px", width: "calc(100% + 4px)", borderRadius: 0}} onClick={()=>{signOut(auth).then(() => {
  setIsLoggedIn(false)
  console.log("Logged out")
 }).catch((error) => {

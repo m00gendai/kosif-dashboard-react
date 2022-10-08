@@ -16,6 +16,9 @@ function Component_ActivityWindow_Activity(props){
   }}
 
   const [editActivityModal, setEditActivityModal] = useState(false)
+const [activityName, setActivityName] = useState(props.title)
+const [activityTime, setActivityTime] = useState(props.time)
+
   const toggleEditActivityModal = () => setEditActivityModal(!editActivityModal)
 
   return(
@@ -32,10 +35,10 @@ function Component_ActivityWindow_Activity(props){
      </div>
      <div className="component_activitywindow_activity_text">
      <div className="component_activitywindow_activity_Text_title">
-       {props.title}
+       {activityName}
      </div>
      <div className="component_activitywindow_activity_text_time">
-       {props.time}
+       {activityTime}
      </div>
      </div>
      <div className="component_activitywindow_activity_editfield">
@@ -44,7 +47,7 @@ function Component_ActivityWindow_Activity(props){
          } sx={{color: "green"}}/>
        <DeleteForeverIcon onClick={() => deleteActivity(props.firebaseId, props.title, props.time)} sx={{color: "red"}}/>
      </div>
-        <Component_ActivityWindow_EditActivity_Modal showActivityEditModal={editActivityModal} closeActivityEditModal={toggleEditActivityModal} activityEditTitle={props.title} activityEditTime={props.time} activityEditId={props.firebaseId}/>
+        <Component_ActivityWindow_EditActivity_Modal showActivityEditModal={editActivityModal} closeActivityEditModal={toggleEditActivityModal} activityEditTitle={activityName} setActivityName={setActivityName} activityEditTime={activityTime} setActivityTime={setActivityTime} activityEditId={props.firebaseId} type={props.type}/>
     </div>    
   )  
 }
